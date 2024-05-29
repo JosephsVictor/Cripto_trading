@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="zD81buY2k6leUQQZJCgPYyLnfsBPu1qSZL8PqiAC">
+
+    <link rel="shortcut icon" type="image/png" href="asset/theme3/images/icon/icon.jpg">
+
+    <title>
+                    FIX TRADING-
+                Login Page
+    </title>
+
+    <link rel="stylesheet" href="asset/theme3/frontend/css/cookie.css">
+    <link href="asset/theme3/frontend/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="asset/theme3/frontend/css/animate.min.css">
+    <link rel="stylesheet" href="asset/theme3/frontend/css/slick.css">
+    <link rel="stylesheet" href="asset/theme3/frontend/css/font-awsome.min.css">
+    <link rel="stylesheet" href="asset/theme3/frontend/css/iziToast.min.css">
+    <link href="asset/theme3/frontend/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="asset/theme1/frontend/css/color.php@primary_color=F7931A.css">
+
+    <style>
+        .custom_preload{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999999999;
+        }
+        .loderCustom{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50% -50%)
+        }
+    </style>
+    <style>
+        .btn{
+            font-size: 12px !important;
+            border-radius: 2px 2px;
+            height: 37px;
+        }
+        .login-btn {
+            font-size: 15px !important;
+            background: linear-gradient(180deg,#fc2de9,#9b00ff) !important;
+            color: #fff;
+            opacity: .9;
+        }
+        .login-btn:hover {
+            font-size: 15px !important;
+            background: linear-gradient(90deg,#fc2de9,#9b00ff) !important;
+            color: #fff;
+            opacity: .9;
+        }
+        .sign-up-btn {
+            font-size: 15px !important;
+            background: linear-gradient(180deg,#565656,#303030) !important;
+            color: #fff;
+            opacity: .9;
+        }
+        .sign-up-btn:hover {
+            font-size: 15px !important;
+            background: linear-gradient(90deg,#565656,#303030) !important;
+            color: #fff;
+            opacity: .9;
+        }
+        .label {
+            color: white !important;
+        }
+        body {
+            /* background-image: url('https://tron.securevault-escrow.com/asset/images/bg/bg-1.png'); */
+            background-image: url('https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center top;
+            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.43);
+        }
+
+        .country-code .input-group-prepend .input-group-text {
+            background: #fff !important;
+        }
+
+        .country-code select {
+            border: none;
+        }
+
+        .country-code select:focus {
+            border: none;
+            outline: none;
+        }
+
+        .hover-input-popup {
+            position: relative;
+        }
+
+        .hover-input-popup:hover .input-popup {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .input-popup {
+            position: absolute;
+            bottom: 130%;
+            left: 50%;
+            width: 280px;
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: all 0.3s;
+            -o-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+
+        .input-popup::after {
+            position: absolute;
+            content: '';
+            bottom: -19px;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 10px 10px 10px 10px;
+            border-style: solid;
+            border-color: transparent transparent #1a1a1a transparent;
+            -webkit-transform: rotate(180deg);
+            -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+        }
+
+        .input-popup p {
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .input-popup p::before {
+            position: absolute;
+            content: '';
+            font-family: 'Line Awesome Free';
+            font-weight: 900;
+            left: 0;
+            top: 4px;
+            line-height: 1;
+            font-size: 18px;
+        }
+
+        .input-popup p.error {
+            text-decoration: line-through;
+        }
+
+        .input-popup p.error::before {
+            content: "\f057";
+            color: #ea5455;
+        }
+
+        .input-popup p.success::before {
+            content: "\f058";
+            color: #28c76f;
+        }
+        /* input */
+        .input-group .input-group-text {
+            background: white;
+            border-bottom: 0px solid #DCDCE9;
+            border-radius: 20px !important;
+            height: 42px;
+            margin-right: 10px;
+        }
+        .form-control {
+            padding: 1px 0.9375rem;
+            border: 1px solid #ffffff;
+            border-radius: 2px 2px !important;
+            background-color: #ffffff49;
+            color: #fff !important;
+            width: 100%;
+            height: 2.125rem;
+            box-shadow: 0 0 6px 1px rgb(255 255 255 / 29%);
+        }
+        .form-control::placeholder {
+            color: #eeeeee !important;
+            font-size: 14px;
+        }
+        .form-control:focus {
+            background-color: #3e3e3e73;
+            border-color: #b70bf7 !important;
+            box-shadow: 0 0 5px rgba(247, 199, 11, 0.35);
+            box-shadow: 0 0 6px 1px rgb(255 255 255 / 29%);
+        }
+        label {
+            margin-bottom: 3px;
+            font-size: 12px;
+        }
+    </style>
+    <style>
+        body, .appHeader, .appBottomMenu {
+            max-width: 450px;
+            margin: auto;
+        }
+    </style>
+
+    <style>
+        #appCapsule {
+            height: 100vh !important;
+            width: 100% !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+    
+    <style>
+        .swal2-popup.swal2-toast {
+            background: rgba( 0, 0, 0, 0.5 ) !important;
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ) !important;
+            backdrop-filter: blur( 11.5px ) !important;
+            -webkit-backdrop-filter: blur( 11.5px ) !important;
+            border-radius: 10px !important;
+            border: 1px solid rgba( 255, 255, 255, 0.18 ) !important;
+            padding: 5px !important;
+            width: auto !important;
+        }
+        .swal2-popup.swal2-toast .swal2-title {
+            margin: 10px 5px !important;
+            color: #FFF !important;
+        }
+        [chrome-autofilled] {
+            background-color: #e5f1fb38 !important;
+            color: #ffffff !important;
+        }
+    </style>
+
+</head>
+
+<body class="text-capitalize">
+
+    <!-- Preloader Ajax Start -->
+    <div id="preLoadCustom" class="d-none">
+        <div class="custom_preload d-flex align-items-center justify-content-center">
+            <img width="40px" class="loaderCustom" src="asset/images/loader/loading-spiner.gif" alt="">
+        </div>
+    </div>
+    <!-- Preloader Ajax End -->
+    
+    
+
+    
+    <main id="main" class="main-img">
+        <!-- App Header -->
+        
+
+        <!-- * App Header -->
+        <div id="appCapsule">
+                <div class="d-none" id="currentPath">login_page</div>
+
+<section class="section px-4 pt-120 pb-120">
+
+    <div class="row justify-content-center">
+        <div class="col">
+            <div class="login-area">
+
+                <div class="text-center mb-3">
+                    <img width="230px" src="https://ouch-cdn2.icons8.com/x1_3aZalX0XM1D2QhyZvb1i3pHVEnk56Nk7dHWARHfw/rs:fit:811:456/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9zdmcvNjI1/LzcxMDI4Njk4LTk0/NDYtNGNlOC04NDU0/LTg3YTBjMWRlN2Y4/ZS5zdmc.png" alt="">
+                    <div class="row align-items-center justify-content-center">
+                        <div class="col-auto">
+                            <div class="input-group">
+                                <button class="btn btn-outline-light" type="button" id="loginPageBtn">Login</button>
+                                <button class="btn btn-outline-light" type="button" id="registerPageBtn">Signup</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="action-form mt-50 loginForm" id="loginForm" action="withdraw.html" method="post">
+                    <input type="hidden" name="_token" value="zD81buY2k6leUQQZJCgPYyLnfsBPu1qSZL8PqiAC">
+                    
+
+                    <div class="form-group boxed">
+                        <div class="input-wrapper">
+                            <input type="text" name="username" placeholder="enter username"
+                                class="form-control text-warning" value="">
+                        </div>
+                    </div><!-- form-group end -->
+
+
+                    <div class="form-group boxed">
+                        <div class="input-wrapper">
+                            
+                            <input type="password" name="password" placeholder="enter password"
+                                class="form-control text-warning" value="">
+                        </div>
+                    </div><!-- form-group end -->
+
+                    <button type="submit" class="btn login-btn w-100 mt-3 py-1 loginSubmitBtn">Login</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<!-- jquery -->
+<script src="asset/theme3/frontend/js/jquery.min.js"></script>
+<!-- nav_script -->
+<script>
+    $(document).on('submit', '#loginForm', function (e) {
+        e.preventDefault();
+        $('.loginSubmitBtn').html(BtnSPIN);
+        var formData = new FormData($('#loginForm')[0]);
+        $.ajax({
+            type: "POST",
+            url: "https://tron.securevault-escrow.com/login",
+            data: formData,
+            dataType: "json",
+            contentType: false, // The content type used when sending data to the server.
+            processData: false,
+            success: function (res) {
+                notifyMsg(res.msg, res.cls);
+                $('.loginSubmitBtn').html('Login');
+                if (res.cls === 'success') {
+                    setTimeout(() => {
+                        window.location.href = "https://tron.securevault-escrow.com/dashboard";
+                    }, 1000);
+                }
+            },
+            error: function (err) {
+                $('.loginSubmitBtn').html('Login');
+                let errors = err.responseJSON.errors;
+                let result = '';
+                $.each(errors, function (index, value) {
+                    console.log(value);
+                    result += value+'<br>'
+                });
+
+                notifyMsg(result, 'error')
+            }
+        });
+
+    });
+</script>
+
+        </div><!-- #appCapsule -->
+    </main>
+
+    <script src="asset/theme3/frontend/js/jquery.min.js"></script>
+    <script src="asset/theme3/frontend/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="asset/theme3/frontend/js/slick.min.js"></script>
+
+    <script src="asset/theme3/frontend/js/wow.min.js"></script>
+    <script src="asset/theme3/frontend/js/jquery.paroller.min.js"></script>
+    <script src="asset/theme3/frontend/js/TweenMax.min.js"></script>
+
+    <script src="asset/theme3/frontend/vendor/php-email-form/validate.js"></script>
+    <script src="asset/theme3/frontend/js/main.js"></script>
+    <script src="asset/theme3/frontend/js/iziToast.min.js"></script>
+    <script src="asset/theme3/frontend/js/jquery.uploadPreview.min.js"></script>
+
+        
+
+
+    
+    
+    
+        <!-- Sweet Alert 2.0 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script>
+        //-- Notify --//
+        const notifyMsg = (msg,cls) => {
+            Swal.fire({
+                position: 'center',
+                icon: cls,
+                title: msg,
+                toast:true,
+                showConfirmButton: false,
+                timer: 2100
+            })
+        }
+
+        const BtnSPIN = `<div class="spinner-border spinner-border-sm" role="status"></div>`;
+
+        const customPush = (route) => {
+            window.history.pushState("", "", route);
+        }
+
+    </script>
+
+    <script>
+        $(window).on('load', function () {
+            btnClr()
+        });
+
+
+        // btn-coller-change
+        const btnClr = () => {
+            if( $('#currentPath').html() == 'login_page' ){
+                $('#loginPageBtn').removeClass("btn-outline-light").addClass("btn-light");
+            }
+
+            if( $('#currentPath').html() == 'register_page' ){
+                $('#registerPageBtn').removeClass("btn-outline-light").addClass("btn-light");
+            }
+        }
+
+        // user login page view
+        $(document).on('click', '#loginPageBtn', function (e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://tron.securevault-escrow.com/ajax-login",
+                success: function (res) {
+                    console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://tron.securevault-escrow.com/login") // url-change
+                    btnClr()
+                }
+            });
+        });
+
+        // user register page view
+        $(document).on('click', '#registerPageBtn', function (e) {
+            e.preventDefault();
+            $('#preLoadCustom').removeClass('d-none'); // loader-on
+            $.ajax({
+                type: "GET",
+                url: "https://tron.securevault-escrow.com/ajax-register",
+                success: function (res) {
+                    console.log(res);
+                    $('#appCapsule').html(res);
+                    $('#preLoadCustom').addClass('d-none'); // loader-off
+                    customPush("https://tron.securevault-escrow.com/register") // url-change
+                    btnClr()
+                }
+            });
+        });
+    </script>
+
+
+    <script>
+        'use strict';
+
+
+
+        $(document).ready(function() {
+            $('#trial_subscribe').on('click', function(e) {
+
+                e.preventDefault();
+                var email = $('#trial_email').val();
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    method: 'POST',
+                    url: "https://tron.securevault-escrow.com/subscribe",
+                    data: {
+                        email: email
+                    },
+                    success: function(response) {
+
+                        if (response.fails) {
+                            notify('error', response.errorMsg.email)
+
+                        }
+
+                        if (response.success) {
+                            $('#email').val('');
+                            notify('success', response.successMsg)
+
+                        }
+                    }
+                });
+            })
+
+
+        });
+    </script>
+
+
+    <script>
+        'use strict'
+        var url = "https://tron.securevault-escrow.com/changeLang";
+
+        $(".changeLang").change(function() {
+            if ($(this).val() == '') {
+                return false;
+            }
+            window.location.href = url + "?lang=" + $(this).val();
+            console.log(window.location.href);
+        });
+
+        //Get the button
+        let mybutton = document.getElementById("btn-back-to-top");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (
+                document.body.scrollTop > 20 ||
+                document.documentElement.scrollTop > 20
+            ) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+        // When the user clicks on the button, scroll to the top of the document
+        mybutton.addEventListener("click", backToTop);
+
+        function backToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+
+</body>
+
+
+</html>
